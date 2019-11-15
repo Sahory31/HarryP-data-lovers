@@ -1,20 +1,26 @@
+
 /*
  * import POKEMON from './data/pokemon/pokemon.js'
  * import LoL from './data/lol/lol.js'
  * import POTTER from './data/potter/potter.js'
  */
 
-/*import { example } from './data.js';
+/*import { POTTER } from './data.js';
 
-console.log(example); */
-
+console.log(POTTER); 
+*/
 /*
  * console.log(POKEMON);
  * console.log(LoL);
  * console.log(POTTER)
 */
 
-console.log("hola");
+ import {POTTER} from './data/potter/potter.js';
+ console.log(POTTER); 
+
+ import { all } from './data.js';
+
+console.log(all); 
 
 var timer = null;
 var page = document.getElementById('page');

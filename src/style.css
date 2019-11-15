@@ -65,16 +65,22 @@ body {
   transform: perspective(100rem) translateY(-1rem) scaleX(.95) rotateX(-60deg);
 }
 .item {
-  display:inline-block;
+  display:flex;
   width: 100%;
-  height: 180px;
+  height: 220px;
+  align-items: flex-end;
+  font-weight: bolder;
   
-  background-color:#3E989B;
   color:#FFF;
   transition:all .2s;
   
   cursor:pointer;
   font-size:140%;
+}
+.name{
+  width: 100%;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .item div {
   flex:1 1 50%;
@@ -91,38 +97,46 @@ body {
 /* colors */
 .item:nth-child(7n+1) {
   background-color:#6DB465;
-  background-image: url(../img/hpalll.jpg);   background-size: contain;
+  background-image: url(hpalll.jpg);   background-size: cover;
+  object-fit: cover;
 }
 .item:nth-child(7n+2) {
   background-color:#6DB465;
-  background-image: url(../img/girlshp.jpg); background-size: contain;
+  background-image: url(girlshp.jpg); background-size: cover;
+  object-fit: cover;
 }
 .item:nth-child(7n+3) {
   background-color:#F2C14E;
-  background-image: url(../img/hpmen.jpg); background-size: contain;
+  background-image: url(hpmen.jpg); background-size: cover;
+  object-fit: cover;
 }
 .item:nth-child(7n+4) {
   background-color:#F78154;
-  background-image: url(../img/hpg.jpg); background-size: contain;
+  background-image: url(hpg.jpg); background-size: cover;
+  object-fit: cover;
 }
 .item:nth-child(7n+5) {
   background-color:#C87694;
-  background-image: url(../img/hph.jpg); background-size: contain; 
+  background-image: url(hpr.jpg); background-size: cover; 
+  object-fit: cover;
 }
 .item:nth-child(7n+6) {
-  background-color:#C87694;
-  background-image: url(../img/hpr.jpg); background-size: contain; 
+  background-color:#6DB465;
+  background-image: url(hph.jpg); background-size: cover; 
+  object-fit: cover;
 }
 .item:nth-child(7n+7) {
-  background-color:#C87694;
-  background-image: url(../hpl.jpg); background-size: contain; 
+  background-color:#F2C14E;
+  background-image: url(hpl.jpg); background-size: cover; 
+  
 }
+
 footer {
   position: relative;
     
 }
 footer img{
-  
+  display: inline-block;
   height: 50px;
   width: 50px;
 }
@@ -139,6 +153,6 @@ footer img{
   margin-top:2%;
   font-family: 'Patrick Hand', cursive;
   font-style: normal;
-  font-size: 3em;
+  font-size: 5em;
  
 }

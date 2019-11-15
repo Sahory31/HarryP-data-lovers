@@ -1,4 +1,4 @@
-export default [
+export const POTTER =[
   {
     name: 'Harry Potter',
     species: 'human',
