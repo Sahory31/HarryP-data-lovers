@@ -14,6 +14,8 @@ console.log(example); */
  * console.log(POTTER)
 */
 
+console.log("hola");
+
 var timer = null;
 var page = document.getElementById('page');
 window.onscroll = function () {

@@ -60,8 +60,9 @@ body {
   font-family:Helvetica,Sans-serif;
 }
 
+
 #page.scrolling .item{
-  transform: perspective(40rem) translateY(-.5rem) scaleX(.95) rotateX(-40deg);
+  transform: perspective(100rem) translateY(-1rem) scaleX(.95) rotateX(-60deg);
 }
 .item {
   display:inline-block;
@@ -90,27 +91,27 @@ body {
 /* colors */
 .item:nth-child(7n+1) {
   background-color:#6DB465;
-  background-image: url(../hpalll.jpg);   background-size: contain;
+  background-image: url(../img/hpalll.jpg);   background-size: contain;
 }
 .item:nth-child(7n+2) {
   background-color:#6DB465;
-  background-image: url(../girlshp.jpg); background-size: contain;
+  background-image: url(../img/girlshp.jpg); background-size: contain;
 }
 .item:nth-child(7n+3) {
   background-color:#F2C14E;
-  background-image: url(../hpmen.jpg); background-size: contain;
+  background-image: url(../img/hpmen.jpg); background-size: contain;
 }
 .item:nth-child(7n+4) {
   background-color:#F78154;
-  background-image: url(../hpg.jpg); background-size: contain;
+  background-image: url(../img/hpg.jpg); background-size: contain;
 }
 .item:nth-child(7n+5) {
   background-color:#C87694;
-  background-image: url(../hph.jpg); background-size: contain; 
+  background-image: url(../img/hph.jpg); background-size: contain; 
 }
 .item:nth-child(7n+6) {
   background-color:#C87694;
-  background-image: url(../hpr.jpg); background-size: contain; 
+  background-image: url(../img/hpr.jpg); background-size: contain; 
 }
 .item:nth-child(7n+7) {
   background-color:#C87694;
