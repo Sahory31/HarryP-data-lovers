@@ -550,3 +550,9 @@ export const POTTER =[
     image: 'http://hp-api.herokuapp.com/images/filch.jpg',
   },
 ];
+window.POTTER = POTTER;
+/*let namesP =[];
+for (let i= 0; i<POTTER.length; i++){
+  namesP.push(POTTER[i].name);
+}
+console.log(namesP);*/

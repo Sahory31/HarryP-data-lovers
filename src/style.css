@@ -1,8 +1,8 @@
 body {
-background-color: #010314;
+/*background-color: #010314;*/
 }
 
-img{
+.header_logo{
   position: absolute;
   width: 400px;
   height: 300px;
@@ -131,9 +131,9 @@ body {
   
 }
 
-footer {
+/*footer {
   position: relative;
-    
+    */
 }
 footer img{
   display: inline-block;
@@ -156,3 +156,38 @@ footer img{
   font-size: 5em;
  
 }
+.grid{
+  display:block;
+ 
+}
+/*
+.cards {
+  text-align: center;
+  margin: 0px 10px 50px 0;
+  cursor: pointer;
+  transition: .4s ease-in-out;
+  display: inherit;
+  flex-flow: column nowrap;
+}
+
+.card:hover{
+transform: scale(1.05);
+margin-bottom: 40px;
+}
+
+
+.hp-card-info{
+  display: flex;
+  height 40%;
+  width: 165px;
+  flex-flow: column;
+}
+.hp-image{
+  margin:0;
+  display: inherit;
+  flex-flow: column nowrap;
+  width: 165px;
+  height: 170px;
+  
+}
+*/
