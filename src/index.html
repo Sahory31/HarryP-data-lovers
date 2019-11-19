@@ -15,7 +15,7 @@
       <input type="submit" value="BUSCAR" id="searchBtn">
     </header>
     <div>
-      <p> ¿Qué es esto?
+      <p class="body_p"> ¿Qué es esto?
         <br>Esta es una página introductoria de la saga mundiamente conocida de Harry Potter. El
         <br>objetivo es presentar a los nuevos usuarios (Como tú) los perfiles de cada personaje con sus
         <br>detalles más personales y básicos.
@@ -30,8 +30,8 @@
     <div id="root"></div>
    
     
-    <div id="page">
-        <div class="item">
+    <div id="page" class="">
+        <div class="item" id="pageAll">
           <div class="name">Todos los personajes</div>
           
         </div>
@@ -111,7 +111,9 @@
         </div>
       </div>        
 
-      
+      <section class="container hide" id="categoryAll">
+        <div id="object"></div>
+      </section>
      
     <footer>
       <div class="footer_band">
@@ -126,9 +128,7 @@
       
         
     </footer>
-    <section class="grid">
-    <div id="object"></div>
-  </section>
+    
     <script type="module" src="data.js"></script>
     <script type="module" src="main.js"></script>
   </body>

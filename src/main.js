@@ -15,6 +15,18 @@ console.log(POTTER);
  * console.log(POTTER)
 */
 
+const pageAll= document.getElementById('pageAll');
+const page = document.getElementById('page');
+const categoryAll =document.getElementById('categoryAll');
+
+pageAll.addEventListener('click', event=> {
+  alert('hey');
+  page.classList.add('hide');
+  categoryAll.classList.remove('hide');
+   
+    
+  });
+
  import {POTTER} from './data/potter/potter.js';
  console.log(POTTER); 
 
@@ -27,6 +39,9 @@ const createTemplateCard = list =>{
   list.forEach(hpData => {
     const card = `
     
+    <div class = "cards" id="${hpData.name}">
+    
+    <img class ="hp-image" src = "${hpData.img}"/>
     
     <p class = "hp-name">${hpData.name}</p>
        
@@ -37,14 +52,10 @@ const createTemplateCard = list =>{
    characterContainer.innerHTML = templateCard;
 };
 createTemplateCard(harryData);
-/*<div class="hp-card-info flex">
-    <div class = "cards" id="${hpData.name}">
-    <figure class = "hp-img" >
-    <img class ="hp-image" src = "${hpData.img}"/>
-    </figure> */
 
-var timer = null;
-var page = document.getElementById('page');
+
+let timer = null;
+
 window.onscroll = function () {
   if (timer) {
     clearTimeout(timer);
