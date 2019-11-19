@@ -15,15 +15,47 @@ console.log(POTTER);
  * console.log(POTTER)
 */
 
-const pageAll= document.getElementById('pageAll');
+const page_all= document.getElementById('page_all');
 const page = document.getElementById('page');
 const categoryAll =document.getElementById('categoryAll');
+const page_girls =document.getElementById('page_girls');
+const page_men =document.getElementById('page_men');
+const page_griffindor =document.getElementById('page_griffindor');
+const page_Hufflepuff =document.getElementById('page_Hufflepuff');
+const page_Ravenclaw =document.getElementById('page_Ravenclaw');
+const page_slytherin =document.getElementById('page_slytherin');
 
 
-pageAll.addEventListener('click', event=> {
+page_all.addEventListener('click', event=> {
    page.classList.add('hide');
   categoryAll.classList.remove('hide');
+  createTemplateCard(harryData);
   });
+
+  page_girls.addEventListener('click', event=> {
+    alert ("girls");
+  
+   });
+  page_men.addEventListener('click', event=> {
+    alert ("men");
+  
+   });
+   page_griffindor.addEventListener('click', event=> {
+    alert ("griffindor");
+  
+   });
+   page_Hufflepuff.addEventListener('click', event=> {
+    alert ("hufflepuff");
+  
+   });
+   page_Ravenclaw.addEventListener('click', event=> {
+    alert ("ravenclaw");
+  
+   });
+   page_slytherin.addEventListener('click', event=> {
+    alert ("slytherin");
+  
+   });
 
  import {POTTER} from './data/potter/potter.js';
  console.log(POTTER); 
@@ -32,7 +64,11 @@ const harryData = app.selectData(POTTER);
 const characterContainer = document.getElementById('object');
 characterContainer.innerHTML = harryData;
 /*
+const filterGirlsNames = app.filterGirlsCategory(POTTER);
+console.log(filterGirlsNames);
 let girlsContainer= document.getElementById('girls');
+girlsContainer= filterGirlsNames;
+/*
 let menContainer= document.getElementById('men');
 let griffindorContainer= document.getElementById('Griffindor');
 let hufflepuffContainer= document.getElementById('Hufflepuff');
@@ -51,9 +87,9 @@ const createTemplateCard = list =>{
     </div> `;
     templateCard += card;
   });
-
-   characterContainer.innerHTML = templateCard;
- // girlsContainer.innerHTML = templateCard;
+ // createTemplateCard(filterGirlsNames);
+  characterContainer.innerHTML = templateCard;
+   // girlsContainer.innerHTML = templateCard;
  // menContainer.innerHTML = templateCard;
  // griffindorContainer.innerHTML = templateCard;
  // hufflepuffContainer.innerHTML = templateCard;
@@ -61,14 +97,13 @@ const createTemplateCard = list =>{
  // ravenclawContainer.innerHTML = templateCard;
    
 };
-createTemplateCard(harryData);
+
+
+
+
+
+
 /*
-const filterGirlsNames = app.filterGirlsCategory(POTTER);
-console.log(filterGirlsNames);
-createTemplateCard(filterGirlsNames);
-girlsContainer= filterGirlsNames;
-
-
 const filterMenNames = app.filterMenCategory(POTTER);
 console.log(filterMenNames);
 createTemplateCard(filterMenNames);
