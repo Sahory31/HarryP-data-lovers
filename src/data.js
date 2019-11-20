@@ -96,8 +96,9 @@ export const app ={
           img: POTTER[i].image
         });
       }
-      
+     
     }  
+    return arrFilterData;
   }
   
     
