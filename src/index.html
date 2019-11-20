@@ -10,12 +10,12 @@
 
   <body>
     <header id="header">
-      <img src="harry_Potter_Logo.png" alt="">
+      <img class="header_logo" src="harry_Potter_Logo.png" alt="">
       <input type="text" placeholder="Personaje..." id="characterSearch">
       <input type="submit" value="BUSCAR" id="searchBtn">
     </header>
     <div>
-      <p> ¿Qué es esto?
+      <p class="body_p"> ¿Qué es esto?
         <br>Esta es una página introductoria de la saga mundiamente conocida de Harry Potter. El
         <br>objetivo es presentar a los nuevos usuarios (Como tú) los perfiles de cada personaje con sus
         <br>detalles más personales y básicos.
@@ -28,6 +28,63 @@
         <br>BIENVENIDOS. </p>
     </div>
     <div id="root"></div>
+   
+    
+    <div id="page" class="">
+        <div class="item" id="page_all">
+          <div class="name">Todos los personajes</div>
+          
+        </div>
+        <div class="item" id="page_girls">
+          <div class="name">Mujeres</div>
+         
+        </div>
+        <div class="item" id="page_men">
+          <div class="name">Hombres</div>
+          
+        </div>
+        <div class="item" id="page_griffindor">
+          <div class="name">Gryffindor</div>
+        
+          
+        </div>
+        <div class="item" id="page_Ravenclaw">
+          <div class="name">Ravenclaw</div>
+        </div>
+
+        <div class="item" id="page_Hufflepuff">
+          <div class="name">Hufflepuff</div>
+        </div>
+      
+      
+      <div class="item" id="page_slytherin">
+          <div class="name">Slytherin</div>
+        </div>
+    </div>  
+
+      <section class="container hide " id="categoryAll">
+        
+        <div id="object" ></div>
+
+       
+      </section>
+     
+    <footer>
+      <button id="back" class= "btn_back">Regresar</button>
+      <div class="footer_band">
+        <p >¡Siguenos en nuestras redes sociales!</p> 
+        </div>
+        <div class ="footer_icons">   
+         <!--- <img src="../twitter.png" alt="twitter-logo" class="icon" width="10%">
+          <img src="../wapp.png" alt="wapp-logo" class="icon">
+          <img src="../fb.png" alt="fb-logo" class="icon">
+        </div>-->
+      </div>
+      
+        
+    </footer>
+    
+    <script type="module" src="data.js"></script>
     <script type="module" src="main.js"></script>
   </body>
 </html>
