@@ -29,7 +29,7 @@ input{
 header{
 background: url(Header.jpg);
 background-size: cover;
-position: absolute;
+
 width: 100%;
 height: 150px;
 left: 0px;
@@ -40,12 +40,13 @@ box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
 
 .body_p{
-  max-width: 800px;
+  display: inline-block;
+  
   font-size: 16px;
   color: #D8C6AF;
-  float:left;
-  margin-top: 200px;
+  
   margin-left: 20px;
+  padding-top: 70px;
 }
 
 .seccion_menu{
@@ -58,6 +59,7 @@ body {
   overflow-x:hidden;
   background-color:black;
   font-family:Helvetica,Sans-serif;
+  display: block;
 }
 
 
@@ -211,9 +213,18 @@ footer img{
   margin-left: 20px;
 }
 
-
-
-
-
-
 */
+#root{
+  display: auto;
+
+}
+.titles{
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  font-size: 50px;
+  color: white;
+  text-align: center;
+  text-align: center;
+  
+  }
