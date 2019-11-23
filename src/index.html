@@ -10,10 +10,16 @@
 
   <body>
     <header id="header">
-      <img class="header_logo" src="harry_Potter_Logo.png" alt="">
-      <input type="text" placeholder="Personaje..." id="characterSearch">
-      <input type="submit" value="BUSCAR" id="searchBtn">
+      <img class="header_logo" src="../img/harry_Potter_Logo.png" alt="">
+      
+      <form action="" id ="form" >
+        <input type="text"  name="name" placeholder="Personaje..." id ="characterSearch">
+        <input type="submit" value="BUSCAR" id="searchBtn">
+      </form>  
+
+       
     </header>
+    
     <div class="body_p">
       <p > ¿Qué es esto?
         <br>Esta es una página introductoria de la saga mundiamente conocida de Harry Potter. El
@@ -29,12 +35,28 @@
     </div>
     
     <section >
+      <div class="featuring" id="featuring"></div>  
+        <div class="overlay" id="overlay">
+          </div>
+          <div class="modals" id="modal">
+            <h1>Personaje</h1>
+            <div class="modal-content hide" id="modal-content">
+              <img src="" alt="" width="170" height="256">
+              <p>Datos</p>
+            </div>
+            <div class="modal-buttons ">
+              <button class="modal-btn primary hide" id="hide-modal">Cerrar Modal</button>
+            </div>
+          </div>
+          
       <div id="root">
         <h1 id="title" class="titles">TITLE</h1>
     </div>
     
   </section>
+  
      <div id="page" class="">
+       
       
         <div class="item" id="page_all">
           
@@ -67,31 +89,36 @@
           <div class="name">Slytherin</div>
         </div>
     </div>  
+    <div class="search-active hide"></div>
 
-      <section class="container hide " id="categoryAll">
+      <section class="hide " id="categoryAll">
         
           <button id="back" class= "btn_back">Regresar</button>
-        <div id="object" >
-          
-        </div>
+          <button id="orderAZ" class= "orderAlph">A-Z</button>
+          <div  class="container">
+        <div id="object" > </div>
+      </div>
 
        
       </section>
-    
-    <footer>
+
+      
+    <footer >
       
       <div class="footer_band">
         <p >¡Siguenos en nuestras redes sociales!</p> 
-        </div>
-        <div class ="footer_icons">   
-         <!--- <img src="../twitter.png" alt="twitter-logo" class="icon" width="10%">
-          <img src="../wapp.png" alt="wapp-logo" class="icon">
-          <img src="../fb.png" alt="fb-logo" class="icon">
-        </div>-->
       </div>
+        <div class ="footer_icons ">   
+          <img src="../img/twitter.png" alt="twitter-logo" class="icon" >
+          <img src="../img/wapp.png" alt="wapp-logo" class="icon">
+          <img src="../img/fb.png" alt="fb-logo" class="icon">
+        
+      </div>
+    </div>
       
         
     </footer>
+    
     
     <script type="module" src="data.js"></script>
     <script type="module" src="main.js"></script>

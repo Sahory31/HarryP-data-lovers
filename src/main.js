@@ -14,6 +14,7 @@ console.log(POTTER);
  * console.log(POTTER)
 */
 
+
 const page_all= document.getElementById('page_all');
 const page = document.getElementById('page');
 const categoryAll =document.getElementById('categoryAll');
@@ -24,6 +25,7 @@ const page_Hufflepuff =document.getElementById('page_Hufflepuff');
 const page_Ravenclaw =document.getElementById('page_Ravenclaw');
 const page_slytherin =document.getElementById('page_slytherin');
 const back = document.getElementById('back');
+const orderAZ= document.getElementById('orderAZ');
 
 const arrTitle = ['Bienvenidos','Todos', 'Mujeres','Hombres','Griffindor','Hufflepuff', 'Slytherin', 'Ravenclaw'];
 const title = document.getElementById("title");
@@ -33,8 +35,9 @@ page_all.addEventListener('click', event=> {
   
    page.classList.add('hide');
    categoryAll.classList.remove('hide');
-   createTemplateCard(harryData);
+   const element = createTemplateCard(harryData);
    title.innerHTML=`${arrTitle[1]}`;
+   addEventClick(element);
   });
 
 page_girls.addEventListener('click', event=> {
@@ -70,7 +73,7 @@ page_girls.addEventListener('click', event=> {
     page.classList.add('hide');
     categoryAll.classList.remove('hide');
     createTemplateCard(filterRavenclaw);
-    title.innerHTML=`${arrTitle[5]}`;
+    title.innerHTML=`${arrTitle[7]}`;
    });
    page_slytherin.addEventListener('click', event=> {
     //alert ("slytherin");
@@ -85,13 +88,21 @@ page_girls.addEventListener('click', event=> {
       title.innerHTML=`${arrTitle[0]}`;
       
        });
+  orderAZ.addEventListener('click', event=> {
+   
+    createTemplateCard(orderNames);
+   });
+  
 
  import {POTTER} from './data/potter/potter.js';
+ console.log(POTTER);
  
 
 const characterContainer = document.getElementById('object');
 
 const harryData = app.selectData(POTTER);
+const orderNames= app.orderNames(POTTER);
+ console.log(orderNames);
 const filterGirlsNames = app.filterGirlsCategory(POTTER);
 const filterMenNames = app.filterMenCategory(POTTER);
 const filterGriffindor = app.gryffindorHouseCategory(POTTER);
@@ -117,9 +128,93 @@ const createTemplateCard = list =>{
 
 };
 
+const createTemplateInfo = list =>{
+  let templateCardInfo ='';
+  for (let i=0; i <list.length; i++){
+    let txtDiv = document.createElement('span');
+    let imgDiv = document.createElement('img');
+    txtDiv.innerHTML = `<p>${list[i].name}</p>`
+    imgDiv.setAttribute('src',list[i].img);
+  }
+ console.log = templateCardInfo;
+ modalContent.innerHTML = templateCardInfo;
+
+};
+
+const $modal = document.getElementById('modal');
+const $overlay = document.getElementById('overlay');
+const $hideModal= document.getElementById('hide-modal');
+const modalContent =document.getElementById('modal-content');
+
+const modalTitle = modal.querySelector('h1');
+const modalImage = modal.querySelector('img');
+const featuringContainer= document.getElementById('featuring');
+const form= document.getElementById('form');
+
+form.addEventListener('submit',(event)=>{
+  event.preventDefault();
+  featuringContainer.classList.add('search-active');
+  page.classList.add('hide');
+})
+
+function addEventClick(modalCard){
+  
+  const cards = document.querySelectorAll('.cards');
+  cards.forEach(element=>
+    element.addEventListener('click', function(){
+      //alert('hey');
+      showModal()
+      createTemplateInfo(harryData);
+    }))
+}
+
+function showModal() {
+  
+  $overlay.classList.add('active');
+  $modal.classList.add('modal');
+  $hideModal.classList.remove('hide');
+  
+}
+
+$hideModal.addEventListener('click', hideModal)
+function hideModal() {
+  overlay.classList.remove('active');
+  $modal.classList.remove('modal');
+  $hideModal.classList.add('hide');
+}
 
 
+/*
+
+(async function load (){
+  async function getData(url){
+     const response = await fetch (url);
+     const data= await response.json()
+     return data;
+   }
+     const nameList = await getData('http://hp-api.herokuapp.com/api/characters')
+     const griffindorList = await getData('http://hp-api.herokuapp.com/api/characters/house/Gryffindor')
+     const ravenclawList = await getData('http://hp-api.herokuapp.com/api/characters/house/Ravenclaw')
+     const HufflepuffList = await getData('http://hp-api.herokuapp.com/api/characters/house/Hufflepuff')
+     const SlytherinList = await getData('http://hp-api.herokuapp.com/api/characters/house/Slytherin')
+      //console.log(nameList);
+     /*let SlytherinList;
+     getData('http://hp-api.herokuapp.com/api/characters/house/Slytherin')
+     .then(function (data){
+       console.log(SlytherinList,data);
+       SlytherinList=data;
+     
+     
+    console.log(nameList, griffindorList, ravenclawList, HufflepuffList,SlytherinList);
+      
+    })()
+ //})()
+
+  
+*/
 //------scrolling-------------------
+
+
 let timer = null;
 
 window.onscroll = function () {
