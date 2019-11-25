@@ -248,29 +248,35 @@ footer img{
   .modal-buttons{
     display: flex;
   }
+  #modal-content{
+    display:flex;
+    justify-content: center;
+  }
 
   .modal-btn {
     display: flex;
     text-align: center;
-    padding: .6em .8em .8em;
-    border: none;
-    color: black;
-    background: whitesmoke;
-    margin: 5px;
-    border-radius: 5px;
     cursor: pointer;
     box-shadow: inset 0 -.2em rgba(0,0,0, .2);
     outline: 0;
     transition: .2s;
     will-change: transform;
     z-index: 3;
+    border-radius: 30px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  font-family: 'kurale';
+  font-size: 16px;
+  font-weight: bolder;
+  background: none;
+  color: #D8C6AF;
   }
     
   .modal-btn:active {
     transform: scale(.9);
   }
   .overlay {
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.9);
     position: fixed;
     left: 0;
     right: 0;
@@ -290,27 +296,33 @@ footer img{
     display: flex;
   }
   .modal {
-  
     width: 300px;
-    background:gray;
+    color: whitesmoke;
+    background:black;
     padding: 1em;
-    border-radius: .5em;
     text-align: center;
     z-index: 2;
     /*transform: translateY(-3000px);*/
     position: absolute;
     left: 0;
     right: 0;
+    top:auto;
     margin: auto;
     height: 500px;
     overflow: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
+    border: 1px solid  whitesmoke;
+  border-radius: 30px;
+  
   }
   
   .modal-content {
     display: flex;
+    justify-content: center;
+   
   }
   
   .modal-content img {
@@ -342,7 +354,7 @@ footer img{
   border: 2xp solid color: yellow;
   border-radius: 30px;
   padding: 10px;
-  margin-top: 0
+  margin-top: 0;
   font-family: 'kurale';
   margin: none;
   margin-right: 25px;

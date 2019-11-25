@@ -14,7 +14,6 @@ console.log(POTTER);
  * console.log(POTTER)
 */
 
-
 const page_all= document.getElementById('page_all');
 const page = document.getElementById('page');
 const categoryAll =document.getElementById('categoryAll');
@@ -156,20 +155,13 @@ $form.addEventListener('submit',(event)=>{
 
   let nameValue = document.getElementById('characterSearch').value;
    function searchByName (searching){
-     console.log(searching.name);
-     return  searching.name == nameValue
+      return  searching.name == nameValue
     }
-
      let characterSearching = harryData.find(searchByName);
-     console.log(characterSearching);
-     if (characterSearching ===undefined){
-      
+      if (characterSearching ===undefined){
   //featuringContainer.innerHTML = JSON.stringify(characterSearching);  
-  console.log(characterSearching);
-  
-    featuringContainer.innerHTML= `<p class = "hp-name">No encontrado</p> `;
+    featuringContainer.innerHTML= `<p class = "hp-name">No ha encontrado el personaje </p> `;
      } else if (characterSearching.name == nameValue){
-      
     const charInfo= `
     <div class="cards card_center">
     <img class ="hp-image" src = "${characterSearching.img}"/>
@@ -177,16 +169,8 @@ $form.addEventListener('submit',(event)=>{
     <p class = "hp-name">${characterSearching.house}</p>
     <p class = "hp-name">${characterSearching.actor}</p>
     </div> `;
-    
     featuringContainer.innerHTML= charInfo;
      }
-      
-   
-   
-  //console.log(harryData.find(searchByName));
-  
-  
-   
 })
 
 const featuringBtn = document.getElementById('back_featuring');
@@ -205,7 +189,6 @@ function addEventClick(){
       
       const infoHp = harryData.filter(infoEachOne=> infoEachOne.name=== characterId
         );
-        console.log(infoHp);
         infoHp.forEach(function(hpData){
           const cardInfo= `
           
@@ -215,25 +198,32 @@ function addEventClick(){
           <p class = "info">${hpData.actor}</p>
           `;
           
-          modal.innerHTML+= cardInfo;
+          modal.innerHTML= cardInfo;
         });
-      console.log(infoHp);
-     //alert('hey');
       showModal()
+         
+      
     }))
 }
 
 function showModal() {
- // hide_modal_btn.classList.remove('hide');
+ 
   $overlay.classList.add('active');
   $modal.classList.add('modal');
+  title.classList.add('overlay');  
+  $modal.classList.remove('hide');
+  modalContent.classList.remove('hide');
 }
+hide_modal_btn.addEventListener('click', hideModal)
+function hideModal(){
+        $modal.classList.add('hide');
+        $overlay.classList.remove('active');
+        title.classList.remove('overlay');
+        modalContent.classList.add('hide');
+       }
+      
 
-hide_modal_btn.addEventListener('click', event =>{
-      $overlay.classList.remove('active');
-      $modal.classList.remove('modal');
-     // hide_modal_btn.classList.add('hide');
-})
+
 
 
 /*
