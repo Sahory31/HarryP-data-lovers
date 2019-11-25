@@ -27,7 +27,7 @@ const page_slytherin =document.getElementById('page_slytherin');
 const back = document.getElementById('back');
 const orderAZ= document.getElementById('orderAZ');
 
-const arrTitle = ['Bienvenidos','Todos', 'Mujeres','Hombres','Griffindor','Hufflepuff', 'Slytherin', 'Ravenclaw'];
+const arrTitle = ['Bienvenidos','Todos Los Personajes', 'Personajes Femeninos','Personajes Masculinos','Casa Griffindor','Casa Hufflepuff', 'Casa Slytherin', 'Casa Ravenclaw'];
 const title = document.getElementById("title");
 title.innerHTML=`${arrTitle[0]}`;
 
@@ -125,47 +125,73 @@ const createTemplateCard = list =>{
   });
  
   characterContainer.innerHTML = templateCard;
+  
+};/*
+ function createTemplateCard(list){
+  let templateCard;
+  list.forEach(function(hpData){
+    const card = `
+    
+    <div class = "cards" id="${hpData.name}">
+    <img class ="hp-image" src = "${hpData.img}"/>
+    <p class = "hp-name">${hpData.name}</p>
+    </div> `;
+    templateCard+= card;
 
+  });
+  characterContainer.innerHTML = templateCard;
 };
-
-const createTemplateInfo = list =>{
-  let templateCardInfo ='';
-  for (let i=0; i <list.length; i++){
-    let txtDiv = document.createElement('span');
-    let imgDiv = document.createElement('img');
-    txtDiv.innerHTML = `<p>${list[i].name}</p>`
-    imgDiv.setAttribute('src',list[i].img);
-  }
- console.log = templateCardInfo;
- modalContent.innerHTML = templateCardInfo;
-
-};
-
+*/
 const $modal = document.getElementById('modal');
 const $overlay = document.getElementById('overlay');
 const $hideModal= document.getElementById('hide-modal');
 const modalContent =document.getElementById('modal-content');
-
+const modalBtn= document.getElementById('modal-button')
 const modalTitle = modal.querySelector('h1');
 const modalImage = modal.querySelector('img');
 const featuringContainer= document.getElementById('featuring');
-const form= document.getElementById('form');
+const $form= document.getElementById('form');
 
-form.addEventListener('submit',(event)=>{
+
+
+$form.addEventListener('submit',(event)=>{
   event.preventDefault();
   featuringContainer.classList.add('search-active');
   page.classList.add('hide');
+  let nameValue = document.getElementById('formcharacterSearch').value;
+  console.log(nameValue);
 })
 
-function addEventClick(modalCard){
+
+
+function addEventClick(){
   
   const cards = document.querySelectorAll('.cards');
   cards.forEach(element=>
     element.addEventListener('click', function(){
+      const characterId= event.currentTarget.id;
+      const infoHp = harryData.filter(infoEachOne=> infoEachOne.name=== characterId
+        );
+        infoHp.forEach(function(hpData){
+          const cardInfo= `
+          
+          <img class ="hp-image" src = "${hpData.img}"/>
+          <p class = "info">${hpData.name}</p>
+          <p class = "info">${hpData.house}</p>
+          <p class = "info">${hpData.actor}</p>
+          </div> `;
+          
+          modal.innerHTML+= cardInfo;
+        });
+        
+      
+      console.log(infoHp);
+     
       //alert('hey');
       showModal()
-      createTemplateInfo(harryData);
+      
     }))
+   
 }
 
 function showModal() {
@@ -174,13 +200,17 @@ function showModal() {
   $modal.classList.add('modal');
   $hideModal.classList.remove('hide');
   
+  
+  
 }
 
 $hideModal.addEventListener('click', hideModal)
 function hideModal() {
+  alert('hey');
   overlay.classList.remove('active');
-  $modal.classList.remove('modal');
+  $modal.classList.add('hide');
   $hideModal.classList.add('hide');
+  
 }
 
 

@@ -12,7 +12,8 @@ export const app ={
       arrSelectData.push ({
         name: data[i].name,
         img: data[i].image,
-        house: data[i].house
+        house: data[i].house,
+        actor: data[i].actor
 
       });
     }  
