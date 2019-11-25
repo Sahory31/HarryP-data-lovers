@@ -148,35 +148,64 @@ const $form= document.getElementById('form');
 
 $form.addEventListener('submit',(event)=>{
   event.preventDefault();
+  
+  const section_featuring = document.getElementById('section_featuring');
   featuringContainer.classList.add('search-active');
   page.classList.add('hide');
+  section_featuring.classList.remove('hide');
+
   let nameValue = document.getElementById('characterSearch').value;
    function searchByName (searching){
-     return searching.name === nameValue;
-   }
-  console.log(harryData.find(searchByName));
-  
-  let characterSearching = harryData.find(searchByName);
+     console.log(searching.name);
+     return  searching.name == nameValue
+    }
+
+     let characterSearching = harryData.find(searchByName);
+     console.log(characterSearching);
+     if (characterSearching ===undefined){
+      
   //featuringContainer.innerHTML = JSON.stringify(characterSearching);  
-  const charInfo= `
-          <div class="cards card_center">
-          <img class ="hp-image" src = "${characterSearching.img}"/>
-          <p class = "hp-name">${characterSearching.name}</p>
-          <p class = "hp-name">${characterSearching.house}</p>
-          <p class = "hp-name">${characterSearching.actor}</p>
-          </div> `;
-          
-          featuringContainer.innerHTML= charInfo;
+  console.log(characterSearching);
+  
+    featuringContainer.innerHTML= `<p class = "hp-name">No encontrado</p> `;
+     } else if (characterSearching.name == nameValue){
+      
+    const charInfo= `
+    <div class="cards card_center">
+    <img class ="hp-image" src = "${characterSearching.img}"/>
+    <p class = "hp-name">${characterSearching.name}</p>
+    <p class = "hp-name">${characterSearching.house}</p>
+    <p class = "hp-name">${characterSearching.actor}</p>
+    </div> `;
+    
+    featuringContainer.innerHTML= charInfo;
+     }
+      
+   
+   
+  //console.log(harryData.find(searchByName));
+  
+  
+   
 })
 
+const featuringBtn = document.getElementById('back_featuring');
+
+featuringBtn.addEventListener('click',event=> {
+  page.classList.remove('hide');
+  section_featuring.classList.add('hide');
+})
 
 function addEventClick(){
+  
   const cards = document.querySelectorAll('.cards');
   cards.forEach(element=>
     element.addEventListener('click', function(){
       const characterId= event.currentTarget.id;
+      
       const infoHp = harryData.filter(infoEachOne=> infoEachOne.name=== characterId
         );
+        console.log(infoHp);
         infoHp.forEach(function(hpData){
           const cardInfo= `
           
@@ -201,7 +230,7 @@ function showModal() {
 }
 
 hide_modal_btn.addEventListener('click', event =>{
-      overlay.classList.remove('active');
+      $overlay.classList.remove('active');
       $modal.classList.remove('modal');
      // hide_modal_btn.classList.add('hide');
 })
