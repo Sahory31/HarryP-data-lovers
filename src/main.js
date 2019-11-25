@@ -86,14 +86,11 @@ page_girls.addEventListener('click', event=> {
       page.classList.remove('hide');
       categoryAll.classList.add('hide');
       title.innerHTML=`${arrTitle[0]}`;
-      
-       });
+    });
   orderAZ.addEventListener('click', event=> {
    
     createTemplateCard(orderNames);
    });
-  
-
  import {POTTER} from './data/potter/potter.js';
  console.log(POTTER);
  
@@ -110,8 +107,6 @@ const filterhufflepuff = app.hufflepuffHouseCategory(POTTER);
 const filterslytherin = app.slytherinHouseCategory(POTTER);
 const filterRavenclaw = app.RavenclawHouseCategory(POTTER);
 
-
-
 const createTemplateCard = list =>{
   let templateCard ='';
   list.forEach(hpData => {
@@ -123,10 +118,9 @@ const createTemplateCard = list =>{
     </div> `;
     templateCard += card;
   });
- 
   characterContainer.innerHTML = templateCard;
-  
-};/*
+  };
+  /*
  function createTemplateCard(list){
   let templateCard;
   list.forEach(function(hpData){
@@ -144,28 +138,39 @@ const createTemplateCard = list =>{
 */
 const $modal = document.getElementById('modal');
 const $overlay = document.getElementById('overlay');
-const $hideModal= document.getElementById('hide-modal');
+const hide_modal_btn= document.getElementById('hide-modal');
 const modalContent =document.getElementById('modal-content');
-const modalBtn= document.getElementById('modal-button')
+
 const modalTitle = modal.querySelector('h1');
 const modalImage = modal.querySelector('img');
 const featuringContainer= document.getElementById('featuring');
 const $form= document.getElementById('form');
 
-
-
 $form.addEventListener('submit',(event)=>{
   event.preventDefault();
   featuringContainer.classList.add('search-active');
   page.classList.add('hide');
-  let nameValue = document.getElementById('formcharacterSearch').value;
-  console.log(nameValue);
+  let nameValue = document.getElementById('characterSearch').value;
+   function searchByName (searching){
+     return searching.name === nameValue;
+   }
+  console.log(harryData.find(searchByName));
+  
+  let characterSearching = harryData.find(searchByName);
+  //featuringContainer.innerHTML = JSON.stringify(characterSearching);  
+  const charInfo= `
+          <div class="cards card_center">
+          <img class ="hp-image" src = "${characterSearching.img}"/>
+          <p class = "hp-name">${characterSearching.name}</p>
+          <p class = "hp-name">${characterSearching.house}</p>
+          <p class = "hp-name">${characterSearching.actor}</p>
+          </div> `;
+          
+          featuringContainer.innerHTML= charInfo;
 })
 
 
-
 function addEventClick(){
-  
   const cards = document.querySelectorAll('.cards');
   cards.forEach(element=>
     element.addEventListener('click', function(){
@@ -179,39 +184,27 @@ function addEventClick(){
           <p class = "info">${hpData.name}</p>
           <p class = "info">${hpData.house}</p>
           <p class = "info">${hpData.actor}</p>
-          </div> `;
+          `;
           
           modal.innerHTML+= cardInfo;
         });
-        
-      
       console.log(infoHp);
-     
-      //alert('hey');
+     //alert('hey');
       showModal()
-      
     }))
-   
 }
 
 function showModal() {
-  
+ // hide_modal_btn.classList.remove('hide');
   $overlay.classList.add('active');
   $modal.classList.add('modal');
-  $hideModal.classList.remove('hide');
-  
-  
-  
 }
 
-$hideModal.addEventListener('click', hideModal)
-function hideModal() {
-  alert('hey');
-  overlay.classList.remove('active');
-  $modal.classList.add('hide');
-  $hideModal.classList.add('hide');
-  
-}
+hide_modal_btn.addEventListener('click', event =>{
+      overlay.classList.remove('active');
+      $modal.classList.remove('modal');
+     // hide_modal_btn.classList.add('hide');
+})
 
 
 /*
