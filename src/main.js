@@ -25,92 +25,97 @@ const page_Ravenclaw =document.getElementById('page_Ravenclaw');
 const page_slytherin =document.getElementById('page_slytherin');
 const back = document.getElementById('back');
 const orderAZ= document.getElementById('orderAZ');
-
+const orderZA= document.getElementById('orderZA');
 const arrTitle = ['Bienvenidos','Todos Los Personajes', 'Personajes Femeninos','Personajes Masculinos','Casa Griffindor','Casa Hufflepuff', 'Casa Slytherin', 'Casa Ravenclaw'];
 const title = document.getElementById("title");
 title.innerHTML=`${arrTitle[0]}`;
-
+//-------------Botones del menú categorias---------
 page_all.addEventListener('click', event=> {
-  
    page.classList.add('hide');
    categoryAll.classList.remove('hide');
    const element = createTemplateCard(harryData);
    title.innerHTML=`${arrTitle[1]}`;
    addEventClick(element);
   });
-
 page_girls.addEventListener('click', event=> {
-    //alert ("girls");
     page.classList.add('hide');
     categoryAll.classList.remove('hide');
-    createTemplateCard(filterGirlsNames);
+    const element =createTemplateCard(filterGirlsNames);
     title.innerHTML=`${arrTitle[2]}`;
+    addEventClick(element);
    });
   page_men.addEventListener('click', event=> {
-   // alert ("men");
     page.classList.add('hide');
     categoryAll.classList.remove('hide');
-    createTemplateCard(filterMenNames);
+    const element = createTemplateCard(filterMenNames);
     title.innerHTML=`${arrTitle[3]}`;
+    addEventClick(element);
     });
    page_griffindor.addEventListener('click', event=> {
-   // alert ("griffindor");
     page.classList.add('hide');
     categoryAll.classList.remove('hide');
-    createTemplateCard(filterGriffindor);
+    const element = createTemplateCard(filterGriffindor);
     title.innerHTML=`${arrTitle[4]}`;
+    addEventClick(element);
    });
    page_Hufflepuff.addEventListener('click', event=> {
-    //alert ("hufflepuff");
     page.classList.add('hide');
     categoryAll.classList.remove('hide');
-    createTemplateCard(filterhufflepuff);
+    const element = createTemplateCard(filterhufflepuff);
     title.innerHTML=`${arrTitle[5]}`;
+    addEventClick(element);
    });
    page_Ravenclaw.addEventListener('click', event=> {
-   // alert ("ravenclaw");
     page.classList.add('hide');
     categoryAll.classList.remove('hide');
-    createTemplateCard(filterRavenclaw);
+    const element = createTemplateCard(filterRavenclaw);
     title.innerHTML=`${arrTitle[7]}`;
+    addEventClick(element);
    });
    page_slytherin.addEventListener('click', event=> {
-    //alert ("slytherin");
     page.classList.add('hide');
     categoryAll.classList.remove('hide');
-    createTemplateCard(filterslytherin);
+    const element = createTemplateCard(filterslytherin);
     title.innerHTML=`${arrTitle[6]}`;
+    addEventClick(element);
      });
      back.addEventListener('click', event=> {
       page.classList.remove('hide');
       categoryAll.classList.add('hide');
       title.innerHTML=`${arrTitle[0]}`;
     });
+//--------Botones ordenar alfabeticamen--------------
   orderAZ.addEventListener('click', event=> {
-   
-    createTemplateCard(orderNames);
+    const element = createTemplateCard(orderNames);
+    addEventClick(element);
    });
- import {POTTER} from './data/potter/potter.js';
+   orderZA.addEventListener('click', event=> {
+    const element = createTemplateCard(reverseZA);
+    addEventClick(element);
+   });
+ /*import {POTTER} from './data/potter/potter.js';
  console.log(POTTER);
- 
-
+ import {filterGirls} from './data.js';
+ console.log(filterGirls(POTTER));
+*/
 const characterContainer = document.getElementById('object');
 
 const harryData = app.selectData(POTTER);
-const orderNames= app.orderNames(POTTER);
- console.log(orderNames);
+//const orderNames= app.orderNames(POTTER);
 const filterGirlsNames = app.filterGirlsCategory(POTTER);
 const filterMenNames = app.filterMenCategory(POTTER);
 const filterGriffindor = app.gryffindorHouseCategory(POTTER);
 const filterhufflepuff = app.hufflepuffHouseCategory(POTTER);
 const filterslytherin = app.slytherinHouseCategory(POTTER);
 const filterRavenclaw = app.RavenclawHouseCategory(POTTER);
+const orderNames= app.orderNames(app.selectData(POTTER));
+const  reverseZA = app.ejecutar(app.orderNames(app.selectData(POTTER)));
 
+//------Funcion templates de categorias-------
 const createTemplateCard = list =>{
   let templateCard ='';
   list.forEach(hpData => {
     const card = `
-    
     <div class = "cards" id="${hpData.name}">
     <img class ="hp-image" src = "${hpData.img}"/>
     <p class = "hp-name">${hpData.name}</p>
@@ -119,41 +124,23 @@ const createTemplateCard = list =>{
   });
   characterContainer.innerHTML = templateCard;
   };
-  /*
- function createTemplateCard(list){
-  let templateCard;
-  list.forEach(function(hpData){
-    const card = `
-    
-    <div class = "cards" id="${hpData.name}">
-    <img class ="hp-image" src = "${hpData.img}"/>
-    <p class = "hp-name">${hpData.name}</p>
-    </div> `;
-    templateCard+= card;
-
-  });
-  characterContainer.innerHTML = templateCard;
-};
-*/
+  
 const $modal = document.getElementById('modal');
 const $overlay = document.getElementById('overlay');
 const hide_modal_btn= document.getElementById('hide-modal');
 const modalContent =document.getElementById('modal-content');
-
-const modalTitle = modal.querySelector('h1');
-const modalImage = modal.querySelector('img');
 const featuringContainer= document.getElementById('featuring');
 const $form= document.getElementById('form');
-
+//--------Buscardor por nombre---------------
 $form.addEventListener('submit',(event)=>{
   event.preventDefault();
-  
   const section_featuring = document.getElementById('section_featuring');
   featuringContainer.classList.add('search-active');
   page.classList.add('hide');
   section_featuring.classList.remove('hide');
 
   let nameValue = document.getElementById('characterSearch').value;
+  
    function searchByName (searching){
       return  searching.name == nameValue
     }
@@ -172,40 +159,35 @@ $form.addEventListener('submit',(event)=>{
     featuringContainer.innerHTML= charInfo;
      }
 })
-
+//---- evento regresar al menu princial----------
 const featuringBtn = document.getElementById('back_featuring');
 
 featuringBtn.addEventListener('click',event=> {
   page.classList.remove('hide');
   section_featuring.classList.add('hide');
 })
-
+//-----Mostar info en tarjetas-----------------
 function addEventClick(){
-  
   const cards = document.querySelectorAll('.cards');
   cards.forEach(element=>
     element.addEventListener('click', function(){
       const characterId= event.currentTarget.id;
-      
+      console.log(characterId);
       const infoHp = harryData.filter(infoEachOne=> infoEachOne.name=== characterId
         );
         infoHp.forEach(function(hpData){
           const cardInfo= `
-          
           <img class ="hp-image" src = "${hpData.img}"/>
           <p class = "info">${hpData.name}</p>
           <p class = "info">${hpData.house}</p>
           <p class = "info">${hpData.actor}</p>
           `;
-          
           modal.innerHTML= cardInfo;
         });
-      showModal()
-         
-      
+      showModal()  
     }))
 }
-
+//----Mostar y ocultar modal----------------
 function showModal() {
  
   $overlay.classList.add('active');
@@ -221,13 +203,11 @@ function hideModal(){
         title.classList.remove('overlay');
         modalContent.classList.add('hide');
        }
-      
+  
 
 
-
-
+//---------------------------------------------- 
 /*
-
 (async function load (){
   async function getData(url){
      const response = await fetch (url);
@@ -245,8 +225,6 @@ function hideModal(){
      .then(function (data){
        console.log(SlytherinList,data);
        SlytherinList=data;
-     
-     
     console.log(nameList, griffindorList, ravenclawList, HufflepuffList,SlytherinList);
       
     })()
@@ -258,7 +236,6 @@ function hideModal(){
 
 
 let timer = null;
-
 window.onscroll = function () {
   if (timer) {
     clearTimeout(timer);

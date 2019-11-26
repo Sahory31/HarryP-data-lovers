@@ -1,10 +1,5 @@
-/* Manejo de data */
-
-// esta es una función de ejemplo
-
 export const app ={
-
-  
+   
   selectData: (data) => {
     const arrSelectData = [];
     for (let i= 0; i<data.length; i++){
@@ -14,36 +9,31 @@ export const app ={
         img: data[i].image,
         house: data[i].house,
         actor: data[i].actor
-
       });
     }  
-      return arrSelectData;
-    
+     return arrSelectData; 
   },
-
-  orderNames: (data) => {
-    const arrOrderName = [];
-    for (let i= 0; i<data.length; i++){
-        arrOrderName.push ({
-        name: data[i].name,
-        img: data[i].image,
-     });
-    }
-    console.log(arrOrderName);
-    arrOrderName.sort(function(a,b){
-      if (a.name < b.name) {
+  orderNames:(func)=>{
+    let finalArray = [];
+    func.sort(function(a,b){
+        if (a.name < b.name) {
         return -1;
         } else if (a.name > b.name) {
         return 1;
         }
-        return 0;
-      }).forEach(function(element) {
+        return 0; 
+      }) 
+      .forEach(function(element) {
+        finalArray.push(element);
+        
         return element;
         
       });
-    
-      return arrOrderName;
-    
+      console.log(finalArray);
+      return finalArray;
+  },
+  ejecutar: (func) =>{
+    return func.reverse();
   },
   filterGirlsCategory: (data) =>{
     const arrFilterData = [];
@@ -57,7 +47,6 @@ export const app ={
     }
     return arrFilterData;
   },
-
   filterMenCategory: (data) =>{
     const arrFilterData = [];
     for (let i= 0; i<data.length; i++){
@@ -70,7 +59,6 @@ export const app ={
     }
     return arrFilterData;
   },
-  
   gryffindorHouseCategory: (data) =>{
     const arrFilterData = [];
     for (let i= 0; i<data.length; i++){
@@ -79,8 +67,7 @@ export const app ={
           name: POTTER[i].name,
           img: POTTER[i].image
         });
-      }
-      
+      }   
     }
     return arrFilterData;
   },
@@ -119,27 +106,23 @@ export const app ={
       }  
     }  
     return arrFilterData;
-  }
-  
- 
+  } 
 }
 window.app = app;
-
-var timer = null;
-
-window.onscroll = function () {
-  if (timer) {
-    clearTimeout(timer);
-    timer = null;
+/*
+export  function filterGirls(data){
+  const arrFilterData = [];
+  for (let i= 0; i<data.length; i++){
+    if (data[i].gender == 'female'){
+      arrFilterData.push({
+        name: POTTER[i].name,
+        img: POTTER[i].image
+      });
+    }
   }
-  else {
-    page.classList.toggle('scrolling');
-  }
-  timer = setTimeout(function () {
-    page.classList.toggle('scrolling');
-    timer = null;
-  }, 150);
+  return arrFilterData;
 }
+*/
 /*
 const KEY = '&apikey=$2a$10$u7IQppiGj43L8rITRvO0LuTiYepa.utQKbYBfDQw1ejpJK57mS3rG';
 const URL = `https://www.potterapi.com/v1/`;
