@@ -46,7 +46,7 @@ export const app ={
       }
     }
     return arrFilterData;
-  },
+  }, 
   filterMenCategory: (data) =>{
     const arrFilterData = [];
     for (let i= 0; i<data.length; i++){
@@ -110,7 +110,7 @@ export const app ={
 }
 window.app = app;
 /*
-export  function filterGirls(data){
+export  function filterGirlsCategory(data){
   const arrFilterData = [];
   for (let i= 0; i<data.length; i++){
     if (data[i].gender == 'female'){
@@ -122,7 +122,7 @@ export  function filterGirls(data){
   }
   return arrFilterData;
 }
-*/
+
 /*
 const KEY = '&apikey=$2a$10$u7IQppiGj43L8rITRvO0LuTiYepa.utQKbYBfDQw1ejpJK57mS3rG';
 const URL = `https://www.potterapi.com/v1/`;

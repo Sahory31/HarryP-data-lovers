@@ -93,10 +93,10 @@ page_girls.addEventListener('click', event=> {
     const element = createTemplateCard(reverseZA);
     addEventClick(element);
    });
- /*import {POTTER} from './data/potter/potter.js';
+ import {POTTER} from './data/potter/potter.js';
  console.log(POTTER);
- import {filterGirls} from './data.js';
- console.log(filterGirls(POTTER));
+ /*import {filterGirlsCategory} from './data.js';
+ console.log(filterGirls(filterGirlsCategory));
 */
 const characterContainer = document.getElementById('object');
 
