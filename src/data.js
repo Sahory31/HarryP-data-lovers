@@ -3,10 +3,9 @@ export const app ={
   selectData: (data) => {
     const arrSelectData = [];
     for (let i= 0; i<data.length; i++){
-      console.log(data.length);
-      arrSelectData.push ({
+        arrSelectData.push ({
         name: data[i].name,
-        img: data[i].image,
+        image: data[i].image,
         house: data[i].house,
         actor: data[i].actor
       });
@@ -25,14 +24,11 @@ export const app ={
       }) 
       .forEach(function(element) {
         finalArray.push(element);
-        
         return element;
-        
       });
-      console.log(finalArray);
       return finalArray;
   },
-  ejecutar: (func) =>{
+  reverseNames: (func) =>{
     return func.reverse();
   },
   /*
@@ -48,8 +44,8 @@ export const app ={
     }
     return arrFilterData;
   }, 
-  */
-  filterMenCategory: (data) =>{
+  
+ /* filterMenCategory: (data) =>{
     const arrFilterData = [];
     for (let i= 0; i<data.length; i++){
       if (data[i].gender == 'male'){
@@ -109,7 +105,7 @@ export const app ={
       }  
     }  
     return arrFilterData;
-  } 
+  } */
 }
 window.app = app;
 
@@ -119,7 +115,20 @@ export  function filterGirlsCategory(data){
     if (data[i].gender == 'female'){
       arrFilterData.push({
         name: POTTER[i].name,
-        img: POTTER[i].image
+        image: POTTER[i].image
+      });
+    }
+  }
+  return arrFilterData;
+}
+
+export function filterMenCategory(data) {
+  const arrFilterData = [];
+  for (let i= 0; i<data.length; i++){
+    if (data[i].gender == 'male'){
+      arrFilterData.push({
+        name: POTTER[i].name,
+        image: POTTER[i].image
       });
     }
   }
@@ -162,4 +171,29 @@ const URL = `https://www.potterapi.com/v1/`;
     
 })()
 */
-
+/*
+(async function load (){
+  async function getData(url){
+     const response = await fetch (url);
+     const data= await response.json()
+     return data;
+   }
+      const nameList = await getData('http://hp-api.herokuapp.com/api/characters')
+     const griffindorList = await getData('http://hp-api.herokuapp.com/api/characters/house/Gryffindor')
+     const ravenclawList = await getData('http://hp-api.herokuapp.com/api/characters/house/Ravenclaw')
+     const HufflepuffList = await getData('http://hp-api.herokuapp.com/api/characters/house/Hufflepuff')
+     const SlytherinList = await getData('http://hp-api.herokuapp.com/api/characters/house/Slytherin')
+    //  console.log(nameList, griffindorList, ravenclawList, HufflepuffList, SlytherinList);
+     /*let SlytherinList;
+     getData('http://hp-api.herokuapp.com/api/characters/house/Slytherin')
+     .then(function (data){
+       console.log(SlytherinList,data);
+       SlytherinList=data;
+    console.log(nameList, griffindorList, ravenclawList, HufflepuffList,SlytherinList);
+      
+     })()
+     
+ })()
+ 
+ console.log(filterGriffindor, filterslytherin, filterhufflepuff, filterRavenclaw);
+ */

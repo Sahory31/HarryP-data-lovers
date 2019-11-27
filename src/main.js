@@ -1,19 +1,31 @@
-/*
- * import POKEMON from './data/pokemon/pokemon.js'
- * import LoL from './data/lol/lol.js'
- * import POTTER from './data/potter/potter.js'
- */
+import {POTTER} from './data/potter/potter.js';
+import {filterGirlsCategory} from './data.js';
+import {filterMenCategory} from './data.js';
+(async function load (){
+  async function getData(url){
+     const response = await fetch (url);
+     const data= await response.json()
+     return data;
+   }
+const harryData= await getData('http://hp-api.herokuapp.com/api/characters')
+const filterGriffindor = await getData('http://hp-api.herokuapp.com/api/characters/house/Gryffindor')
+const filterRavenclaw = await getData('http://hp-api.herokuapp.com/api/characters/house/Ravenclaw')
+const filterhufflepuff = await getData('http://hp-api.herokuapp.com/api/characters/house/Hufflepuff')
+const filterslytherin = await getData('http://hp-api.herokuapp.com/api/characters/house/Slytherin')
+const filterGirlsNames = filterGirlsCategory(POTTER);
+const filterMenNames = filterMenCategory(POTTER);
+//const harryData = app.selectData(POTTER);
+//const orderNames= app.orderNames(POTTER);
+//const filterGirlsNames = app.filterGirlsCategory(POTTER);
+//const filterMenNames = app.filterMenCategory(POTTER);
+//const filterGriffindor = app.gryffindorHouseCategory(POTTER);
+//const filterhufflepuff = app.hufflepuffHouseCategory(POTTER);
+//const filterslytherin = app.slytherinHouseCategory(POTTER);
+//const filterRavenclaw = app.RavenclawHouseCategory(POTTER);
+const orderNames= app.orderNames(app.selectData(POTTER));
+const  reverseZA = app.reverseNames(app.orderNames(app.selectData(POTTER)));
 
-/*import { POTTER } from './data.js';
-
-console.log(POTTER); 
-*/
-/*
- * console.log(POKEMON);
- * console.log(LoL);
- * console.log(POTTER)
-*/
-
+const characterContainer = document.getElementById('object');
 const page_all= document.getElementById('page_all');
 const page = document.getElementById('page');
 const categoryAll =document.getElementById('categoryAll');
@@ -29,6 +41,15 @@ const orderZA= document.getElementById('orderZA');
 const arrTitle = ['Bienvenidos','Todos Los Personajes', 'Personajes Femeninos','Personajes Masculinos','Casa Griffindor','Casa Hufflepuff', 'Casa Slytherin', 'Casa Ravenclaw'];
 const title = document.getElementById("title");
 title.innerHTML=`${arrTitle[0]}`;
+  
+const $modal = document.getElementById('modal');
+const $overlay = document.getElementById('overlay');
+const hide_modal_btn= document.getElementById('hide-modal');
+const modalContent =document.getElementById('modal-content');
+
+const featuringContainer= document.getElementById('featuring');
+const featuringBtn = document.getElementById('back_featuring');
+const $form= document.getElementById('form');
 //-------------Botones del menú categorias---------
 page_all.addEventListener('click', event=> {
    page.classList.add('hide');
@@ -93,44 +114,19 @@ page_girls.addEventListener('click', event=> {
     const element = createTemplateCard(reverseZA);
     addEventClick(element);
    });
- import {POTTER} from './data/potter/potter.js';
- console.log(POTTER);
- import {filterGirlsCategory} from './data.js';
- console.log(filterGirlsCategory(POTTER));
-
-const characterContainer = document.getElementById('object');
-const filterGirlsNames = filterGirlsCategory(POTTER);
-const harryData = app.selectData(POTTER);
-//const orderNames= app.orderNames(POTTER);
-//const filterGirlsNames = app.filterGirlsCategory(POTTER);
-const filterMenNames = app.filterMenCategory(POTTER);
-const filterGriffindor = app.gryffindorHouseCategory(POTTER);
-const filterhufflepuff = app.hufflepuffHouseCategory(POTTER);
-const filterslytherin = app.slytherinHouseCategory(POTTER);
-const filterRavenclaw = app.RavenclawHouseCategory(POTTER);
-const orderNames= app.orderNames(app.selectData(POTTER));
-const  reverseZA = app.ejecutar(app.orderNames(app.selectData(POTTER)));
-
 //------Funcion templates de categorias-------
 const createTemplateCard = list =>{
   let templateCard ='';
   list.forEach(hpData => {
     const card = `
     <div class = "cards" id="${hpData.name}">
-    <img class ="hp-image" src = "${hpData.img}"/>
+    <img class ="hp-image" src = "${hpData.image}"/>
     <p class = "hp-name">${hpData.name}</p>
     </div> `;
     templateCard += card;
   });
   characterContainer.innerHTML = templateCard;
   };
-  
-const $modal = document.getElementById('modal');
-const $overlay = document.getElementById('overlay');
-const hide_modal_btn= document.getElementById('hide-modal');
-const modalContent =document.getElementById('modal-content');
-const featuringContainer= document.getElementById('featuring');
-const $form= document.getElementById('form');
 //--------Buscardor por nombre---------------
 $form.addEventListener('submit',(event)=>{
   event.preventDefault();
@@ -151,7 +147,7 @@ $form.addEventListener('submit',(event)=>{
      } else if (characterSearching.name == nameValue){
     const charInfo= `
     <div class="cards card_center">
-    <img class ="hp-image" src = "${characterSearching.img}"/>
+    <img class ="hp-image" src = "${characterSearching.image}"/>
     <p class = "hp-name">${characterSearching.name}</p>
     <p class = "hp-name">${characterSearching.house}</p>
     <p class = "hp-name">${characterSearching.actor}</p>
@@ -160,7 +156,6 @@ $form.addEventListener('submit',(event)=>{
      }
 })
 //---- evento regresar al menu princial----------
-const featuringBtn = document.getElementById('back_featuring');
 
 featuringBtn.addEventListener('click',event=> {
   page.classList.remove('hide');
@@ -177,7 +172,7 @@ function addEventClick(){
         );
         infoHp.forEach(function(hpData){
           const cardInfo= `
-          <img class ="hp-image" src = "${hpData.img}"/>
+          <img class ="hp-image" src = "${hpData.image}"/>
           <p class = "info">${hpData.name}</p>
           <p class = "info">${hpData.house}</p>
           <p class = "info">${hpData.actor}</p>
@@ -204,37 +199,9 @@ function hideModal(){
         modalContent.classList.add('hide');
        }
   
+})()
 
-
-//---------------------------------------------- 
-/*
-(async function load (){
-  async function getData(url){
-     const response = await fetch (url);
-     const data= await response.json()
-     return data;
-   }
-     const nameList = await getData('http://hp-api.herokuapp.com/api/characters')
-     const griffindorList = await getData('http://hp-api.herokuapp.com/api/characters/house/Gryffindor')
-     const ravenclawList = await getData('http://hp-api.herokuapp.com/api/characters/house/Ravenclaw')
-     const HufflepuffList = await getData('http://hp-api.herokuapp.com/api/characters/house/Hufflepuff')
-     const SlytherinList = await getData('http://hp-api.herokuapp.com/api/characters/house/Slytherin')
-      //console.log(nameList);
-     /*let SlytherinList;
-     getData('http://hp-api.herokuapp.com/api/characters/house/Slytherin')
-     .then(function (data){
-       console.log(SlytherinList,data);
-       SlytherinList=data;
-    console.log(nameList, griffindorList, ravenclawList, HufflepuffList,SlytherinList);
-      
-    })()
- //})()
-
-  
-*/
 //------scrolling-------------------
-
-
 let timer = null;
 window.onscroll = function () {
   if (timer) {
@@ -249,3 +216,4 @@ window.onscroll = function () {
     timer = null;
   }, 150);
 }
+//-----------------------------------------------
