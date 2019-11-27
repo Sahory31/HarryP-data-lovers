@@ -95,14 +95,14 @@ page_girls.addEventListener('click', event=> {
    });
  import {POTTER} from './data/potter/potter.js';
  console.log(POTTER);
- /*import {filterGirlsCategory} from './data.js';
- console.log(filterGirls(filterGirlsCategory));
-*/
-const characterContainer = document.getElementById('object');
+ import {filterGirlsCategory} from './data.js';
+ console.log(filterGirlsCategory(POTTER));
 
+const characterContainer = document.getElementById('object');
+const filterGirlsNames = filterGirlsCategory(POTTER);
 const harryData = app.selectData(POTTER);
 //const orderNames= app.orderNames(POTTER);
-const filterGirlsNames = app.filterGirlsCategory(POTTER);
+//const filterGirlsNames = app.filterGirlsCategory(POTTER);
 const filterMenNames = app.filterMenCategory(POTTER);
 const filterGriffindor = app.gryffindorHouseCategory(POTTER);
 const filterhufflepuff = app.hufflepuffHouseCategory(POTTER);

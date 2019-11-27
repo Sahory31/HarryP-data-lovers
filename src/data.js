@@ -35,6 +35,7 @@ export const app ={
   ejecutar: (func) =>{
     return func.reverse();
   },
+  /*
   filterGirlsCategory: (data) =>{
     const arrFilterData = [];
     for (let i= 0; i<data.length; i++){
@@ -47,6 +48,7 @@ export const app ={
     }
     return arrFilterData;
   }, 
+  */
   filterMenCategory: (data) =>{
     const arrFilterData = [];
     for (let i= 0; i<data.length; i++){
@@ -59,6 +61,7 @@ export const app ={
     }
     return arrFilterData;
   },
+  
   gryffindorHouseCategory: (data) =>{
     const arrFilterData = [];
     for (let i= 0; i<data.length; i++){
@@ -109,7 +112,7 @@ export const app ={
   } 
 }
 window.app = app;
-/*
+
 export  function filterGirlsCategory(data){
   const arrFilterData = [];
   for (let i= 0; i<data.length; i++){
