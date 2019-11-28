@@ -10,12 +10,18 @@
 
   <body>
     <header id="header">
-      <img src="harry_Potter_Logo.png" alt="">
-      <input type="text" placeholder="Personaje..." id="characterSearch">
-      <input type="submit" value="BUSCAR" id="searchBtn">
+      <img class="header_logo" src="../img/harry_Potter_Logo.png" alt="">
+      
+      <form action="" id ="form" >
+        <input type="text"  name="name" placeholder="Personaje..." id ="characterSearch" >
+        <input type="submit" value="BUSCAR" id="searchBtn">
+      </form>  
+
+       
     </header>
-    <div>
-      <p> ¿Qué es esto?
+    
+    <div class="body_p">
+      <p > ¿Qué es esto?
         <br>Esta es una página introductoria de la saga mundiamente conocida de Harry Potter. El
         <br>objetivo es presentar a los nuevos usuarios (Como tú) los perfiles de cada personaje con sus
         <br>detalles más personales y básicos.
@@ -25,9 +31,101 @@
         <br>
         <br>Aqui abajo, te pasamos los filtros por si los quieres conocer a todos. O acá a la derecha, puedes buscarlo por nombre.
         <br>
-        <br>BIENVENIDOS. </p>
+        
     </div>
-    <div id="root"></div>
+    
+    <section >
+     
+        <div class="overlay" id="overlay"> </div>
+          <div class="modals" id="modal"></div>
+            <div class="hide" id = "modal-content">          
+              <button type= "submit" class="modal-btn" id="hide-modal" >X</button>
+            </div>
+          
+          
+      <div id="root" class="center">
+        <h1 id="title" class="titles "></h1>
+      </div>
+      <section class="hide" id= "section_featuring">
+          <div class="center"> 
+              <button id="back_featuring" class= "btn">Regresar</button>
+        </div> 
+          <div class="featuring" id="featuring">
+               
+        </div>  
+      </section>
+        
+    
+  </section>
+  
+     <div id="page" class="">
+       
+      
+        <div class="item" id="harryData">
+          
+          <div class="name">Todos los personajes</div>
+          
+      </div>
+        <div class="item" id="page_girls">
+          <div class="name">Mujeres</div>
+         
+        </div>
+        <div class="item" id="page_men">
+          <div class="name">Hombres</div>
+        
+        </div>
+        <div class="item" id="page_griffindor">
+          <div class="name">Gryffindor</div>
+        
+          
+        </div>
+        <div class="item" id="page_Ravenclaw">
+          <div class="name">Ravenclaw</div>
+        </div>
+
+        <div class="item" id="page_Hufflepuff">
+          <div class="name">Hufflepuff</div>
+        </div>
+      
+      
+      <div class="item" id="page_slytherin">
+          <div class="name">Slytherin</div>
+        </div>
+    </div>  
+    <div class="search-active hide"></div>
+
+      <section class="hide " id="categoryAll">
+        <div class="center"> 
+          <button id="back" class= "btn">Regresar</button>
+          <button id="orderAZ" class= "btn">Todos los personajes de la A-Z</button>
+          <button id="orderZA" class= "btn">Todos los personajes de la Z-A</button>
+        </div>
+          <div  class="container">
+        <div id="object" > </div>
+      </div>
+
+       
+      </section>
+
+      
+    <footer >
+      
+      <div class="footer_band">
+        <p >¡Siguenos en nuestras redes sociales!</p> 
+      </div>
+        <div class ="footer_icons ">   
+          <img src="../img/twitter.png" alt="twitter-logo" class="icon" >
+          <img src="../img/wapp.png" alt="wapp-logo" class="icon">
+          <img src="../img/fb.png" alt="fb-logo" class="icon">
+        
+      </div>
+    </div>
+      
+        
+    </footer>
+    
+    
+    <script type="module" src="data.js"></script>
     <script type="module" src="main.js"></script>
   </body>
 </html>
