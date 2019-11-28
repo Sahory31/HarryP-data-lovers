@@ -348,6 +348,7 @@ footer img{
   display: flex;
     align-items: center;
     flex-direction: column;
+    margin: 8%;
 }
 .btn {
   background: white;
@@ -368,4 +369,8 @@ footer img{
 }
 .featuring{
   display: inline-block;
+}
+.info{
+  color:whitesmoke;
+  font-weight: bold;
 }

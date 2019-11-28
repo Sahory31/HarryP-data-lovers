@@ -31,84 +31,9 @@ export const app ={
   reverseNames: (func) =>{
     return func.reverse();
   },
-  /*
-  filterGirlsCategory: (data) =>{
-    const arrFilterData = [];
-    for (let i= 0; i<data.length; i++){
-      if (data[i].gender == 'female'){
-        arrFilterData.push({
-          name: POTTER[i].name,
-          img: POTTER[i].image
-        });
-      }
-    }
-    return arrFilterData;
-  }, 
-  
- /* filterMenCategory: (data) =>{
-    const arrFilterData = [];
-    for (let i= 0; i<data.length; i++){
-      if (data[i].gender == 'male'){
-        arrFilterData.push({
-          name: POTTER[i].name,
-          img: POTTER[i].image
-        });
-      }
-    }
-    return arrFilterData;
-  },
-  
-  gryffindorHouseCategory: (data) =>{
-    const arrFilterData = [];
-    for (let i= 0; i<data.length; i++){
-      if (data[i].house == 'Gryffindor'){
-        arrFilterData.push({
-          name: POTTER[i].name,
-          img: POTTER[i].image
-        });
-      }   
-    }
-    return arrFilterData;
-  },
-  hufflepuffHouseCategory: (data) =>{
-    const arrFilterData = [];
-    for (let i= 0; i<data.length; i++){
-      if (data[i].house == 'Hufflepuff'){
-        arrFilterData.push({
-          name: POTTER[i].name,
-          img: POTTER[i].image
-        });
-      }
-    }
-    return arrFilterData;
-  },
-  slytherinHouseCategory: (data) =>{
-    const arrFilterData = [];
-    for (let i= 0; i<data.length; i++){
-      if (data[i].house == 'Slytherin'){
-        arrFilterData.push({
-          name: POTTER[i].name,
-          img: POTTER[i].image
-        });
-      }
-    }
-    return arrFilterData;
-  },
-  RavenclawHouseCategory: (data) =>{
-    const arrFilterData = [];
-    for (let i= 0; i<data.length; i++){
-      if (data[i].house == 'Ravenclaw'){
-        arrFilterData.push({
-          name: POTTER[i].name,
-          img: POTTER[i].image
-        });
-      }  
-    }  
-    return arrFilterData;
-  } */
+
 }
 window.app = app;
-
 export  function filterGirlsCategory(data){
   const arrFilterData = [];
   for (let i= 0; i<data.length; i++){
@@ -121,7 +46,6 @@ export  function filterGirlsCategory(data){
   }
   return arrFilterData;
 }
-
 export function filterMenCategory(data) {
   const arrFilterData = [];
   for (let i= 0; i<data.length; i++){
@@ -171,29 +95,3 @@ const URL = `https://www.potterapi.com/v1/`;
     
 })()
 */
-/*
-(async function load (){
-  async function getData(url){
-     const response = await fetch (url);
-     const data= await response.json()
-     return data;
-   }
-      const nameList = await getData('http://hp-api.herokuapp.com/api/characters')
-     const griffindorList = await getData('http://hp-api.herokuapp.com/api/characters/house/Gryffindor')
-     const ravenclawList = await getData('http://hp-api.herokuapp.com/api/characters/house/Ravenclaw')
-     const HufflepuffList = await getData('http://hp-api.herokuapp.com/api/characters/house/Hufflepuff')
-     const SlytherinList = await getData('http://hp-api.herokuapp.com/api/characters/house/Slytherin')
-    //  console.log(nameList, griffindorList, ravenclawList, HufflepuffList, SlytherinList);
-     /*let SlytherinList;
-     getData('http://hp-api.herokuapp.com/api/characters/house/Slytherin')
-     .then(function (data){
-       console.log(SlytherinList,data);
-       SlytherinList=data;
-    console.log(nameList, griffindorList, ravenclawList, HufflepuffList,SlytherinList);
-      
-     })()
-     
- })()
- 
- console.log(filterGriffindor, filterslytherin, filterhufflepuff, filterRavenclaw);
- */
