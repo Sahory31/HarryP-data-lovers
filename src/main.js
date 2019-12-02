@@ -147,9 +147,11 @@ function addEventClick(){
         infoHp.forEach(function(hpData){
           const cardInfo= `
           <img class ="hp-image" src = "${hpData.image}"/>
-          <p class = "info">${hpData.name}</p>
-          <p class = "info">${hpData.house}</p>
-          <p class = "info">${hpData.actor}</p>
+          <p class = "info">Nombre: ${hpData.name}</p>
+          <p class = "info">Casa: ${hpData.house}</p>
+          <p class = "info">Actor: ${hpData.actor}</p>
+          <p class = "info">Descendencia: ${hpData.ancestry}</p>
+          <p class = "info">Patronus: ${hpData.patronus}</p>
           `;
           modal.innerHTML= cardInfo;
         });
