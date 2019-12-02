@@ -7,11 +7,11 @@ import {filterGirlsCategory, filterMenCategory} from './data.js';
      const data= await response.json()
      return data;
    }
-const harryData= await getData('http://hp-api.herokuapp.com/api/characters')
-const filterGriffindor = await getData('http://hp-api.herokuapp.com/api/characters/house/Gryffindor')
-const filterRavenclaw = await getData('http://hp-api.herokuapp.com/api/characters/house/Ravenclaw')
-const filterhufflepuff = await getData('http://hp-api.herokuapp.com/api/characters/house/Hufflepuff')
-const filterslytherin = await getData('http://hp-api.herokuapp.com/api/characters/house/Slytherin')
+const harryData= await getData('https://hp-api.herokuapp.com/api/characters')
+const filterGriffindor = await getData('https://hp-api.herokuapp.com/api/characters/house/Gryffindor')
+const filterRavenclaw = await getData('https://hp-api.herokuapp.com/api/characters/house/Ravenclaw')
+const filterhufflepuff = await getData('https://hp-api.herokuapp.com/api/characters/house/Hufflepuff')
+const filterslytherin = await getData('https://hp-api.herokuapp.com/api/characters/house/Slytherin')
 const filterGirlsNames = filterGirlsCategory(POTTER);
 const filterMenNames = filterMenCategory(POTTER);
 const orderNames= app.orderNames(app.selectData(POTTER));

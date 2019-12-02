@@ -111,37 +111,37 @@ body {
 /* colors */
 .item:nth-child(7n+1) {
   background-color:#6DB465;
-  background-image: url(../src/img/hpalll.jpg);   background-size: cover;
+  background-image: url(./img/hpalll.jpg);   background-size: cover;
   object-fit: cover;
 }
 .item:nth-child(7n+2) {
   background-color:#6DB465;
-  background-image: url(../src/img/girlshp.jpg); background-size: cover;
+  background-image: url(./img/girlshp.jpg); background-size: cover;
   object-fit: cover;
 }
 .item:nth-child(7n+3) {
   background-color:#F2C14E;
-  background-image: url(../src/img/hpmen.jpg); background-size: cover;
+  background-image: url(./img/hpmen.jpg); background-size: cover;
   object-fit: cover;
 }
 .item:nth-child(7n+4) {
   background-color:#F78154;
-  background-image: url(../src/img/hpg.jpg); background-size: cover;
+  background-image: url(./img/hpg.jpg); background-size: cover;
   object-fit: cover;
 }
 .item:nth-child(7n+5) {
   background-color:#C87694;
-  background-image: url(../src/img/hpr.jpg); background-size: cover; 
+  background-image: url(./img/hpr.jpg); background-size: cover; 
   object-fit: cover;
 }
 .item:nth-child(7n+6) {
   background-color:#6DB465;
-  background-image: url(../src/img/hph.jpg); background-size: cover; 
+  background-image: url(./img/hph.jpg); background-size: cover; 
   object-fit: cover;
 }
 .item:nth-child(7n+7) {
   background-color:#F2C14E;
-  background-image: url(../src/img/hpl.jpg); background-size: cover; 
+  background-image: url(./img/hpl.jpg); background-size: cover; 
   
 }
 
@@ -292,7 +292,7 @@ footer img{
   .modal {
     width: 20%;
     color: rgb(37, 6, 6);
-    background-image: url(../src/img/fondo_card.gif); background-size: cover;
+    background-image: url(./img/fondo_card.gif); background-size: cover;
     padding: 10px;
     text-align: center;
     z-index: 2;
@@ -347,7 +347,7 @@ footer img{
 }
 .btn {
   background: white;
-  border: 2xp solid color: yellow;
+  border: 2xp solid yellow;
   border-radius: 30px;
   padding: 10px;
   margin-top: 0;
@@ -374,7 +374,7 @@ footer img{
 @media screen and (min-width:480px) and (max-width: 780px){
 
   header{
-    background: url(../src/img/Header.jpg);
+    background: url(./img/Header.jpg);
     background-size: cover;
     
     width: 100%;
@@ -396,12 +396,12 @@ footer img{
     top: 6%;
   }
   
-  input{
+  input {
     float: left;
     position: left;
     top: 300%;
     background: white;
-    border: 2xp solid color: yellow;
+    border: 2xp solid yellow;
     border-radius: 30px;
     padding: .5%;
     margin-top: 27%;
@@ -526,7 +526,7 @@ footer img{
     .modal {
       width: 25%;
       color: rgb(37, 6, 6);
-      background-image: url(../src/img/fondo_card.gif); background-size: 130%;
+      background-image: url(./img/fondo_card.gif); background-size: 130%;
       padding: 10%;
       text-align: center;
       z-index: 2;
